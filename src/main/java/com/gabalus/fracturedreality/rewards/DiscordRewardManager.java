@@ -14,9 +14,10 @@ public final class DiscordRewardManager {
     public static void grantCompletionRewards(RewardContext context) {
         ServerPlayer player = context.player();
         int tier = Math.max(1, context.tier());
+        ResourceLocation recipeReward = RecipeScrollPoolRegistry.rollRecipe(context.theme(), tier);
 
         giveOrDrop(player, new ItemStack(FRItems.ECHO_SHARD.get(), 4 + tier * 4));
-        giveOrDrop(player, RecipeScrollItem.create(selectRecipeReward(context), context.theme(), tier));
+        giveOrDrop(player, RecipeScrollItem.create(recipeReward, context.theme(), tier));
 
         if (tier >= 2) {
             giveOrDrop(player, new ItemStack(FRItems.DISCORD_CORE_FRAGMENT.get(), tier - 1));
@@ -27,29 +28,6 @@ public final class DiscordRewardManager {
 
         player.sendSystemMessage(Component.literal("Fractured Reality rewards granted for " + context.theme() + " Tier " + tier + ".")
             .withStyle(ChatFormatting.LIGHT_PURPLE));
-    }
-
-    private static ResourceLocation selectRecipeReward(RewardContext context) {
-        String theme = context.theme().toLowerCase();
-        int tier = Math.max(1, context.tier());
-
-        if (theme.contains("arsenal") || theme.contains("gun") || theme.contains("bullet")) {
-            return new ResourceLocation("minecraft", tier >= 2 ? "crossbow" : "arrow");
-        }
-
-        if (theme.contains("arcane") || theme.contains("library") || theme.contains("astral")) {
-            return new ResourceLocation("minecraft", tier >= 2 ? "enchanting_table" : "book");
-        }
-
-        if (theme.contains("machine") || theme.contains("forge") || theme.contains("foundry")) {
-            return new ResourceLocation("minecraft", tier >= 2 ? "anvil" : "furnace");
-        }
-
-        if (theme.contains("garden") || theme.contains("beast") || theme.contains("grove")) {
-            return new ResourceLocation("minecraft", tier >= 2 ? "golden_apple" : "bread");
-        }
-
-        return new ResourceLocation("minecraft", tier >= 2 ? "shield" : "chest");
     }
 
     private static void awardProgression(ServerPlayer player, int tier) {
