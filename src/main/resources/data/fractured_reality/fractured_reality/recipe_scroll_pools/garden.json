@@ -1,0 +1,8 @@
+{
+  "theme": "garden",
+  "entries": [
+    { "recipe": "minecraft:bread", "min_tier": 1, "weight": 10 },
+    { "recipe": "minecraft:golden_apple", "min_tier": 2, "weight": 4 },
+    { "recipe": "minecraft:shield", "min_tier": 3, "weight": 2 }
+  ]
+}
