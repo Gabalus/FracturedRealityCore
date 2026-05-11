@@ -1,0 +1,16 @@
+{
+  "id": "fractured_reality:asc_blood_reaver",
+  "name": "Blood Reaver",
+  "description": "Ascendancy notable: stronger combat clears and boss rewards.",
+  "type": "ASCENDANCY_NOTABLE",
+  "ascendancy": "blood_reaver",
+  "max_rank": 1,
+  "cost": 1,
+  "x": -420,
+  "y": 0,
+  "requires": [],
+  "modifiers": [
+    { "stat": "melee_damage_percent", "value": 12.0, "operation": "add" },
+    { "stat": "boss_reward_weight_percent", "value": 10.0, "operation": "add" }
+  ]
+}
