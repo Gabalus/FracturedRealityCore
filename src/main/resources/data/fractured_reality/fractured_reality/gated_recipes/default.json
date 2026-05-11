@@ -1,0 +1,9 @@
+{
+  "recipes": [
+    "minecraft:shield",
+    "minecraft:crossbow",
+    "minecraft:enchanting_table",
+    "minecraft:anvil",
+    "minecraft:golden_apple"
+  ]
+}
