@@ -1,0 +1,8 @@
+{
+  "theme": "catacombs",
+  "entries": [
+    { "recipe": "minecraft:chest", "min_tier": 1, "weight": 8 },
+    { "recipe": "minecraft:shield", "min_tier": 1, "weight": 6 },
+    { "recipe": "minecraft:anvil", "min_tier": 2, "weight": 3 }
+  ]
+}
