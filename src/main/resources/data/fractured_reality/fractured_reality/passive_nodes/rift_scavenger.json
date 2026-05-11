@@ -1,0 +1,15 @@
+{
+  "id": "fractured_reality:rift_scavenger",
+  "name": "Rift Scavenger",
+  "description": "More Echo Shards from Discord rewards.",
+  "type": "NOTABLE",
+  "max_rank": 1,
+  "cost": 2,
+  "x": 0,
+  "y": 220,
+  "requires": ["fractured_reality:gun_handling_1"],
+  "modifiers": [
+    { "stat": "echo_shard_gain_percent", "value": 15.0, "operation": "add" },
+    { "stat": "discord_currency_gain_percent", "value": 10.0, "operation": "add" }
+  ]
+}
