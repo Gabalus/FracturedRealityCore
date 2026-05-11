@@ -1,5 +1,6 @@
 package com.gabalus.fracturedreality.rewards;
 
+import com.gabalus.fracturedreality.compat.CompatManager;
 import com.gabalus.fracturedreality.progression.PlayerProgressionProvider;
 import com.gabalus.fracturedreality.registry.FRItems;
 import net.minecraft.ChatFormatting;
@@ -25,6 +26,7 @@ public final class DiscordRewardManager {
 
         player.giveExperiencePoints(25 * tier);
         awardProgression(player, tier);
+        CompatManager.onDiscordCompleted(context);
 
         player.sendSystemMessage(Component.literal("Fractured Reality rewards granted for " + context.theme() + " Tier " + tier + ".")
             .withStyle(ChatFormatting.LIGHT_PURPLE));
