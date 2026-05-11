@@ -1,0 +1,15 @@
+{
+  "id": "fractured_reality:glass_cannon",
+  "name": "Glass Cannon",
+  "description": "Greatly increased damage, reduced maximum health.",
+  "type": "KEYSTONE",
+  "max_rank": 1,
+  "cost": 3,
+  "x": 220,
+  "y": 160,
+  "requires": ["fractured_reality:spell_power_1"],
+  "modifiers": [
+    { "stat": "all_damage_percent", "value": 25.0, "operation": "add" },
+    { "stat": "max_health_percent", "value": -15.0, "operation": "add" }
+  ]
+}
