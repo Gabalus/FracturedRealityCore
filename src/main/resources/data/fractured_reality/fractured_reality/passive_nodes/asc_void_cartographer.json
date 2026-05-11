@@ -1,0 +1,16 @@
+{
+  "id": "fractured_reality:asc_void_cartographer",
+  "name": "Void Cartographer",
+  "description": "Ascendancy notable: better Discord rewards and map control.",
+  "type": "ASCENDANCY_NOTABLE",
+  "ascendancy": "void_cartographer",
+  "max_rank": 1,
+  "cost": 1,
+  "x": 420,
+  "y": 0,
+  "requires": [],
+  "modifiers": [
+    { "stat": "discord_reward_rooms_percent", "value": 10.0, "operation": "add" },
+    { "stat": "recipe_scroll_chance_percent", "value": 10.0, "operation": "add" }
+  ]
+}
