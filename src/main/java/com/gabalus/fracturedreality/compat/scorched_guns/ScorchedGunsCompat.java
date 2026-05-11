@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 public class ScorchedGunsCompat implements CompatModule {
     @Override
     public String modId() {
-        return "scorchedguns";
+        return "scguns";
     }
 
     @Override
