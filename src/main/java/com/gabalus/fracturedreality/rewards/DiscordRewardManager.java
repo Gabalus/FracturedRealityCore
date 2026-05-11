@@ -1,5 +1,6 @@
 package com.gabalus.fracturedreality.rewards;
 
+import com.gabalus.fracturedreality.progression.PlayerProgressionProvider;
 import com.gabalus.fracturedreality.registry.FRItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -21,8 +22,37 @@ public final class DiscordRewardManager {
         }
 
         player.giveExperiencePoints(25 * tier);
+        awardProgression(player, tier);
+
         player.sendSystemMessage(Component.literal("Fractured Reality rewards granted for " + context.theme() + " Tier " + tier + ".")
             .withStyle(ChatFormatting.LIGHT_PURPLE));
+    }
+
+    private static void awardProgression(ServerPlayer player, int tier) {
+        player.getCapability(PlayerProgressionProvider.PLAYER_PROGRESSION).ifPresent(progression -> {
+            progression.addCompletedDiscord();
+
+            int completed = progression.getCompletedDiscordCount();
+            int passivePoints = 0;
+
+            if (completed == 1) {
+                passivePoints += 1;
+            }
+
+            if (completed % 3 == 0) {
+                passivePoints += 1;
+            }
+
+            if (tier >= 3 && completed % 2 == 0) {
+                passivePoints += 1;
+            }
+
+            if (passivePoints > 0) {
+                progression.addPassivePoints(passivePoints);
+                player.sendSystemMessage(Component.literal("Gained " + passivePoints + " passive point" + (passivePoints == 1 ? "" : "s") + ". Total: " + progression.getPassivePoints())
+                    .withStyle(ChatFormatting.AQUA));
+            }
+        });
     }
 
     private static void giveOrDrop(ServerPlayer player, ItemStack stack) {
