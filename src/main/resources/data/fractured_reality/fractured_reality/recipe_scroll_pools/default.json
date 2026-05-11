@@ -1,0 +1,7 @@
+{
+  "theme": "default",
+  "entries": [
+    { "recipe": "minecraft:chest", "min_tier": 1, "weight": 10 },
+    { "recipe": "minecraft:shield", "min_tier": 2, "weight": 5 }
+  ]
+}
