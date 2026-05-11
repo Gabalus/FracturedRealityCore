@@ -1,0 +1,8 @@
+{
+  "theme": "arsenal",
+  "entries": [
+    { "recipe": "minecraft:arrow", "min_tier": 1, "weight": 10 },
+    { "recipe": "minecraft:crossbow", "min_tier": 1, "weight": 5 },
+    { "recipe": "minecraft:shield", "min_tier": 2, "weight": 3 }
+  ]
+}
