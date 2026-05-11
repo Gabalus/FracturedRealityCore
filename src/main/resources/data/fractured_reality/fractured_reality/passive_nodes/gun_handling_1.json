@@ -1,0 +1,15 @@
+{
+  "id": "fractured_reality:gun_handling_1",
+  "name": "Ballistic Memory",
+  "description": "Improved firearm handling and arsenal reward bias.",
+  "type": "SMALL",
+  "max_rank": 5,
+  "cost": 1,
+  "x": -40,
+  "y": 130,
+  "requires": ["fractured_reality:root"],
+  "modifiers": [
+    { "stat": "firearm_damage_percent", "value": 4.0, "operation": "add" },
+    { "stat": "arsenal_reward_weight_percent", "value": 2.0, "operation": "add" }
+  ]
+}
