@@ -1,0 +1,15 @@
+{
+  "id": "fractured_reality:root",
+  "name": "Fractured Origin",
+  "description": "The first recovered memory of your broken progression.",
+  "type": "ATTRIBUTE",
+  "max_rank": 1,
+  "cost": 1,
+  "x": 0,
+  "y": 0,
+  "requires": [],
+  "modifiers": [
+    { "stat": "max_health_percent", "value": 2.0, "operation": "add" },
+    { "stat": "echo_shard_gain_percent", "value": 2.0, "operation": "add" }
+  ]
+}
