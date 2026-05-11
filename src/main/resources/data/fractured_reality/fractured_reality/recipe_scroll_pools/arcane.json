@@ -1,0 +1,8 @@
+{
+  "theme": "arcane",
+  "entries": [
+    { "recipe": "minecraft:book", "min_tier": 1, "weight": 10 },
+    { "recipe": "minecraft:enchanting_table", "min_tier": 2, "weight": 5 },
+    { "recipe": "minecraft:golden_apple", "min_tier": 3, "weight": 2 }
+  ]
+}
