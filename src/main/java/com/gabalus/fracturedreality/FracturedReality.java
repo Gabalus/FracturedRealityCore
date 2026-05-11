@@ -1,5 +1,6 @@
 package com.gabalus.fracturedreality;
 
+import com.gabalus.fracturedreality.compat.CompatManager;
 import com.gabalus.fracturedreality.discord.DiscordIntegrationEvents;
 import com.gabalus.fracturedreality.registry.FRItems;
 import com.mojang.logging.LogUtils;
@@ -22,6 +23,7 @@ public class FracturedReality {
         FRItems.ITEMS.register(modBus);
         modBus.addListener(this::onBuildCreativeModeTabContents);
 
+        CompatManager.init();
         MinecraftForge.EVENT_BUS.register(DiscordIntegrationEvents.class);
 
         LOGGER.info("Fractured Reality Core loaded. Hyperbox/InfiniDungeons present: {}", ModList.get().isLoaded("hyperbox"));
