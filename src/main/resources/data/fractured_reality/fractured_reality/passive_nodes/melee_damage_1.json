@@ -1,0 +1,14 @@
+{
+  "id": "fractured_reality:melee_damage_1",
+  "name": "Steel Memory",
+  "description": "Increased melee damage.",
+  "type": "SMALL",
+  "max_rank": 5,
+  "cost": 1,
+  "x": -120,
+  "y": 40,
+  "requires": ["fractured_reality:root"],
+  "modifiers": [
+    { "stat": "melee_damage_percent", "value": 4.0, "operation": "add" }
+  ]
+}
