@@ -1,0 +1,15 @@
+{
+  "id": "fractured_reality:spell_power_1",
+  "name": "Arcane Memory",
+  "description": "Increased spell damage and magical reward bias.",
+  "type": "SMALL",
+  "max_rank": 5,
+  "cost": 1,
+  "x": 120,
+  "y": 40,
+  "requires": ["fractured_reality:root"],
+  "modifiers": [
+    { "stat": "spell_damage_percent", "value": 4.0, "operation": "add" },
+    { "stat": "magic_scroll_weight_percent", "value": 2.0, "operation": "add" }
+  ]
+}
