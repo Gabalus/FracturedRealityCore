@@ -38,22 +38,28 @@ public final class RecipeGateEvents {
             }
 
             ItemStack crafted = event.getCrafting();
-            removeCraftedStack(player, crafted);
+            removeCraftedOutputFromInventory(player, crafted);
             player.sendSystemMessage(Component.literal("You do not know this recipe yet: " + recipeId)
                 .withStyle(ChatFormatting.RED));
-            player.sendSystemMessage(Component.literal("Find and use a Sealed Recipe Scroll for this recipe.")
+            player.sendSystemMessage(Component.literal("Find and use a Sealed Recipe Scroll for this recipe. The crafted output was removed.")
                 .withStyle(ChatFormatting.YELLOW));
         });
     }
 
-    private static void removeCraftedStack(ServerPlayer player, ItemStack crafted) {
+    private static void removeCraftedOutputFromInventory(ServerPlayer player, ItemStack crafted) {
         if (crafted.isEmpty()) {
             return;
         }
 
-        ItemStack toRemove = crafted.copy();
-        toRemove.setCount(crafted.getCount());
-        player.getInventory().clearOrCountMatchingItems(stack -> ItemStack.isSameItemSameTags(stack, toRemove), toRemove.getCount(), player.inventoryMenu.getCraftSlots());
-        player.getInventory().clearOrCountMatchingItems(stack -> ItemStack.isSameItemSameTags(stack, toRemove), toRemove.getCount(), player.getInventory());
+        int remaining = crafted.getCount();
+        for (int slot = 0; slot < player.getInventory().getContainerSize() && remaining > 0; slot++) {
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (ItemStack.isSameItemSameTags(stack, crafted)) {
+                int removed = Math.min(remaining, stack.getCount());
+                stack.shrink(removed);
+                remaining -= removed;
+                player.getInventory().setChanged();
+            }
+        }
     }
 }
