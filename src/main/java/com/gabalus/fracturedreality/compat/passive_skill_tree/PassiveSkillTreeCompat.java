@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 public class PassiveSkillTreeCompat implements CompatModule {
     @Override
     public String modId() {
-        return "passiveskilltree";
+        return "skilltree";
     }
 
     @Override
